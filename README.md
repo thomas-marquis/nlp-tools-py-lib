@@ -22,7 +22,7 @@ def build_classifier():
     loader = MdLoader(TRAIN_PATH)
     processor = Preprocessing(loader)
     repres = MergedMatrixRepresentation(processor.data)
-    classifier = ClassificationProcessor(NaiveBayseTfIdfClassifier(), repres)
+    classifier = ClassificationProcessor(NaiveBayseTfIdfClassifier(), repres.data)
     classifier.train()
 
     def predict(text: str):
