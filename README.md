@@ -16,7 +16,7 @@ from nlp_tools.loaders import MdLoader
 from nlp_tools.representations import MergedMatrixRepresentation
 from nlp_tools.classifiers import ClassificationProcessor, NaiveBayseTfIdfClassifier
 
-TRAIN_PATH = './training.md'
+TRAIN_PATH = 'demo_training.md'
 
 def build_classifier():
     loader = MdLoader(TRAIN_PATH)

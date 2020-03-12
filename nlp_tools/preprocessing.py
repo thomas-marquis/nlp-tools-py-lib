@@ -8,6 +8,7 @@ from nlp_tools.loaders import DataLoader, InputData
 
 class Preprocessing:
     def __init__(self, data_loader: DataLoader):
+        nltk.download('stopwords')
         self.tokenizer = nltk.RegexpTokenizer(r'\w+')
         self.stemmer = FrenchStemmer()
         self.get_stop_words()
@@ -23,7 +24,6 @@ class Preprocessing:
         self.data = data
 
     def get_stop_words(self):
-        nltk.download('french')
         self.stop_words = nltk.corpus.stopwords.words('french')
         dump_stop_words(self.stop_words)
 

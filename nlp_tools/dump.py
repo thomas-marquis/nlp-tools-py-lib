@@ -1,11 +1,21 @@
 import json
 import io
+import os
+import errno
 
 from nlp_tools.constants import *
 
 
 def dump_json(data, file_name, output_path=OUT_PATH):
-    with io.open(output_path + file_name, "w", encoding="utf8") as out:
+    filename = output_path + file_name
+    if not os.path.exists(filename):
+        try:
+            os.makedirs(os.path.dirname(filename))
+        except OSError as err:
+            if err.errno != errno.EEXIST:
+                raise
+
+    with io.open(filename, "w", encoding="utf8") as out:
         data = json.dumps(data, ensure_ascii=False)
         out.write(data)
 

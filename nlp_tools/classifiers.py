@@ -57,7 +57,6 @@ class NaiveBayseClassifier(AbstractClassifier):
             current_p = 0
             if len(repres) != 0:
                 current_p = np.sum(repres)
-                print(intent, current_p)
             if current_p > max_p:
                 max_p = current_p
                 best_intent = intent
@@ -107,7 +106,6 @@ class NaiveBayseTfIdfClassifier(NaiveBayseClassifier):
             current_p = 0
             if len(repres) != 0:
                 current_p = np.sum(repres)
-                print(intent, current_p)
             if current_p > max_p:
                 max_p = current_p
                 best_intent = intent
